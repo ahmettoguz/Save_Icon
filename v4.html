@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> 
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+
+    <script>
+      let code = faUnicode("fa-solid fa-ghost");
+      drawCanvas(code);
+      console.log(code);
+
+      function faUnicode(name) {
+        var testI = document.createElement("i");
+        var char;
+
+        testI.className = name;
+        document.body.appendChild(testI);
+
+        char = window
+          .getComputedStyle(testI, ":before")
+          .content.replace(/'|"/g, "");
+
+        testI.remove();
+        return "\\u" + char.charCodeAt(0).toString(16)
+        // return char.charCodeAt(0).toString(16);
+      }
+
+      function drawCanvas(code) {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.font='48px fontawesome';
+        ctx.fillText('\uF064\uF065 \uF0a5 \e409',20,75);
+      }
+    </script>
+  </body>
+</html>

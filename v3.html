@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href=
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+      const i = document.createElement("i");
+
+      //   <i class="fa-solid fa-ghost"></i>
+      //   i.setAttribute("class", "fas fa-check-circle");
+      i.setAttribute("class", "fa-solid fa-ghost");
+      document.body.appendChild(i);
+
+      // get the styles for the icon you just made
+      const iStyles = window.getComputedStyle(i);
+      const iBeforeStyles = window.getComputedStyle(i, ":before");
+
+      console.log(iStyles);
+      console.log(iBeforeStyles);
+
+      const fontFamily = iStyles.getPropertyValue("font-family");
+      const fontWeight = iStyles.getPropertyValue("font-weight");
+      const fontSize = "40px";
+
+      const canvasFont = `${fontWeight} ${fontSize} ${fontFamily}`; // should be something like: '900 40px "Font Awesome 5 Pro"'
+      const icon = String.fromCodePoint(
+        iBeforeStyles.getPropertyValue("content").codePointAt(1)
+      ); // codePointAt(1) because the first character is a double quote
+
+      console.log(iBeforeStyles.getPropertyValue("content").toString(16));
+
+      var myCanvas = document.getElementById("myCanvas");
+      const ctx = myCanvas.getContext("2d");
+
+      ctx.font = canvasFont;
+      ctx.fillStyle = "red";
+      ctx.textAlign = "center";
+      ctx.fillText(icon, myCanvas.width / 2, myCanvas.height / 2);
+      console.log(icon);
+
+      //   const a = document.createElement("a");
+      //   a.href = myCanvas.toDataURL();
+      //   a.download = "sc.png";
+      //   a.click();
+    </script>
+  </body>
+</html>
