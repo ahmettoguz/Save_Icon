@@ -1,0 +1,24 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: FontAwesome;
+}
+
+#main {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+#main * div {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main > .cavasContainer {
+  box-sizing: border-box;
+  height: 100%;
+}
