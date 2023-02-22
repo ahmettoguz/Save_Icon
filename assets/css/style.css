@@ -3,22 +3,61 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: FontAwesome;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande";
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #main {
+  padding: 50px;
   box-sizing: border-box;
-  height: 100%;
+  flex-direction: column;
 }
 
-#main * div {
+#main div {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#main > .cavasContainer {
+#main span {
   box-sizing: border-box;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main > div {
+  margin: 0 auto;
+  flex-direction: column;
+  height: 100px;
+  width: 200px;
+}
+
+#main > .cavasContainer {
+  width: 200px;
+  height: 220px;
+  box-sizing: border-box;
+  font-family: FontAwesome;
+  border: 1px solid black;
+}
+
+#main > .cavasContainer > span {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande" !important;
+  height: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: FontAwesome;
+  border: 1px solid black;
+}
+
+#main > .cavasContainer > #canvas {
+  border: 1px solid black;
+  height: 200px;
+  width: 200px;
 }

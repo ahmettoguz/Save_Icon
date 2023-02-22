@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="./assets/js/index.js"></script>
@@ -19,7 +26,34 @@
   <body>
     <div id="main">
       <div class="cavasContainer">
-        <canvas id="canvas" width="300" height="300"></canvas>
+        <span>Önizleme</span>
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div class="sourceContainer">
+        <span>İkon Kaynağı</span>
+        <input type="text" class="source" oninput="changeSource()" />
+      </div>
+
+      <div class="colorContainer">
+        <span>İkon Rengi</span>
+        <input type="color" oninput="changeColor()" />
+      </div>
+
+      <div class="sizeContainer">
+        <span>İkon Boyutu</span>
+        <input
+          type="range"
+          oninput="changeSize()"
+          min="2"
+          max="200"
+          value="50"
+        />
+        <span class="result">50px</span>
+      </div>
+
+      <div class="buttonContainer">
+        <button onclick="downloadClick()">Png Olarak İndir</button>
       </div>
     </div>
   </body>
