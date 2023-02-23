@@ -3,7 +3,6 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande";
 }
 
 body {
@@ -14,69 +13,134 @@ body {
 }
 
 #main {
-  min-height: 700px;
-  /* height: 100%;  */
-  padding: 30px 20px;
+  height: 600px;
+  width: 650px;
+  padding: 10px;
   box-sizing: border-box;
+  display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   background-color: #fefefe;
-  border: 2px outset silver;
+  border-radius: 5px;
+  box-shadow: 0 0 5px silver;
 }
 
 #main div,
 #main span {
+  font-family: "Lexend Deca", sans-serif;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
 }
 
+/* labels */
+span,
+input,
+button {
+  box-sizing: border-box;
+  font-size: 18px;
+  /* border: 1px solid black; */
+}
+
+/* rows */
 #main > div {
-  margin: 0 auto;
-  flex-direction: column;
-  height: 70px;
-  /* border: 1px solid black; */
-}
-
-#main > div > span {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande" !important;
-  height: 20px;
   width: 100%;
-  box-sizing: border-box;
-  font-family: FontAwesome;
   /* border: 1px solid black; */
 }
 
-#main > .cavasContainer {
-  width: 200px;
-  height: 220px;
-  box-sizing: border-box;
-  font-family: FontAwesome;
-  border: 1px solid black;
-  display: block;
+/* Icon */
+#main > .iconRow {
+  height: 300px;
 }
 
-#main > .cavasContainer > span {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande" !important;
-  height: 20px;
+#main > .iconRow > .cavasContainer {
+  height: 280px;
+  width: 250px;
+  box-shadow: 0 0 5px silver;
+}
+#main > .iconRow > .cavasContainer > span {
   width: 100%;
-  box-sizing: border-box;
-  font-family: FontAwesome;
-  box-shadow: 0 5px 5px -5px silver;
-}
-
-#main > .cavasContainer > div {
+  height: 30px;
+  text-decoration: silver underline 2px;
+  text-underline-offset: 3px;
   /* border: 1px solid black; */
-  height: 200px;
-  width: 200px;
 }
 
-#main > .cavasContainer > div > #canvas {
-  border: 1px dashed blue;
+#main > .iconRow > .cavasContainer > div {
+  width: 250px;
+  height: 250px;
+  /* border: 1px solid black; */
 }
 
-#main > .sourceContainer > input {
-  font-size: 16px;
+#main > .iconRow > .cavasContainer > div > #canvas {
+  border: 2px dashed lightseagreen;
+}
+
+/* Source */
+#main > .sourceRow {
+  height: 65px;
+  width: 500px;
+}
+#main > .sourceRow > .sourceContainer {
+  height: 90%;
+  justify-content: space-around;
+  /* border: 1px solid black; */
+}
+
+#main > .sourceRow > .sourceContainer > input {
   text-align: center;
-  width: 100px;
+  width: 170px;
+}
+
+/* Details */
+#main > .detailRow {
+  height: 160px;
+  width: 650px;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 8px 0;
+}
+
+/* colums */
+#main > .detailRow > .col {
+  height: 100%;
+  width: 33%;
+  justify-content: space-around;
+  position: relative;
+  /* border: 1px solid black; */
+}
+
+#main > .detailRow > .col:nth-of-type(2) {
+  box-shadow: 6px 0 10px -12px silver, -6px 0 10px -12px silver;
+}
+
+/* rows */
+#main > .detailRow > .col > div {
+  height: 50%;
+  justify-content: center;
+}
+#main > .detailRow > .col > div:nth-of-type(1) {
+  box-shadow: 0px 2px 2px -2px silver;
+}
+
+#main > .detailRow > .col > .colorContainer > input {
+  margin-top: 3px;
+  width: 80%;
+  /* border: 1px solid black; */
+}
+
+/* Buttons */
+#main > .buttonRow {
+  height: 40px;
+}
+
+#main > .buttonRow > .buttonContainer > button {
+  transition: 200ms ease;
+}
+
+#main > .buttonRow > .buttonContainer > button:focus {
+  transform: scale(0.95);
 }

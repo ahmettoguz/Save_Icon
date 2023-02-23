@@ -5,16 +5,21 @@ let color = "black";
 let canvasHeight = 50;
 let canvasWidth = 50;
 
+let iconPosX = 0;
+let iconPosY = canvasHeight;
+
 $(function () {
   // I need this because when I want to print icon to canvas it do not print in first time.
   initilizeCanvas();
+  // console.log(findUniCode("fa-solid fa-house"));
+  console.log(findUniCode("fa-solid fa-magnifying-glass"));
 });
 
 function initilizeCanvas() {
   for (let i = 0; i < 100; i++) {
     setTimeout(() => {
       drawCanvas();
-    }, 1);
+    }, i);
   }
 }
 
@@ -26,8 +31,6 @@ function findUniCode(name) {
 
   let char = window.getComputedStyle(testI, ":before").content;
   testI.remove();
-
-  console.log("\\u" + char.charCodeAt(1).toString(16));
 
   return "\\u" + char.charCodeAt(1).toString(16);
 }
@@ -44,11 +47,11 @@ function drawCanvas() {
   ctx.fillStyle = color;
   // ctx.textBaseline = "middle";
 
-  ctx.fillText(src, 0, size);
+  ctx.fillText(src, iconPosX, iconPosY);
 }
 
 function changeSource() {
-  src = $("#main > div.sourceContainer > input").val();
+  src = $("#main > div.sourceRow > div > input").val();
 
   if (src.length == 4) {
     src = String.fromCharCode(parseInt(src, 16));
@@ -56,39 +59,83 @@ function changeSource() {
   }
 }
 
-function changeColor() {
-  color = $("#main > div.colorContainer > input[type=color]").val();
-  drawCanvas();
-}
-
 function changeSize() {
-  size = $("#main > div.sizeContainer > input[type=range]").val();
-  // console.log("size girildi", size);
+  const element = $(
+    "#main > div.detailRow > div:nth-child(1) > div.sizeContainer > input[type=range]"
+  );
+  size = element.val();
 
-  //   update output
-  $("#main > div.sizeContainer > span.result").html(`${size}px`);
+  // update output
+  element.next().html(`${size}px`);
+
+  // change frame sizes
+  changeCanvasWidth(size);
+  changeCanvasHeight(size);
+  changeIconPosY(size);
 
   drawCanvas();
 }
 
-function changeCanvasHeight() {
-  canvasHeight = $(
-    "#main > div.canvasHeightContainer > input[type=range]"
+function changeColor() {
+  color = $(
+    "#main > div.detailRow > div:nth-child(1) > div.colorContainer > input[type=color]"
   ).val();
-  // console.log("size girildi", size);
-
-  //   update output
-  $("#main > div.canvasHeightContainer > span.result").html(`${size}px`);
 
   drawCanvas();
 }
 
-function changeCanvasWidth() {
-  canvasWidth = $("#main > div.canvasWidthContainer > input[type=range]").val();
-  // console.log("size girildi", size);
+function changeCanvasHeight(size = null) {
+  const element = $(
+    "#main > div.detailRow > div:nth-child(2) > div.canvasHeightContainer > input[type=range]"
+  );
+  if (size != null) element.val(size);
 
-  //   update output
-  $("#main > div.canvasWidthContainer > span.result").html(`${size}px`);
+  canvasHeight = element.val();
+
+  changeIconPosY(canvasHeight);
+
+  // update output
+  element.next().html(`${canvasHeight}px`);
+
+  drawCanvas();
+}
+
+function changeCanvasWidth(size = null) {
+  const element = $(
+    "#main > div.detailRow > div:nth-child(2) > div.canvasWidthContainer > input[type=range]"
+  );
+  if (size != null) element.val(size);
+
+  canvasWidth = element.val();
+
+  element.next().html(`${canvasWidth}px`);
+
+  drawCanvas();
+}
+
+function changeIconPosX() {
+  const element = $(
+    "#main > div.detailRow > div:nth-child(3) > div.iconPosXContainer > input[type=range]"
+  );
+  iconPosX = element.val();
+
+  // update output
+  element.next().html(`${iconPosX}px`);
+
+  drawCanvas();
+}
+
+function changeIconPosY(size = null) {
+  const element = $(
+    "#main > div.detailRow > div:nth-child(3) > div.iconPosYContainer > input[type=range]"
+  );
+
+  if (size != null) element.val(size);
+
+  iconPosY = element.val();
+
+  // update output
+  element.next().html(`${iconPosY}px`);
 
   drawCanvas();
 }

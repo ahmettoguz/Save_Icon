@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awasome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -25,67 +33,100 @@
   </head>
   <body>
     <div id="main">
-      <div class="cavasContainer">
-        <span>Önizleme</span>
-        <div>
-          <canvas id="canvas"></canvas>
+      <div class="iconRow">
+        <div class="cavasContainer">
+          <span>Önizleme</span>
+          <div>
+            <canvas id="canvas" height="50" width="50"></canvas>
+          </div>
         </div>
       </div>
-
-      <div class="sourceContainer">
-        <span>İkon Kaynağı</span>
-        <input
-          type="text"
-          class="source"
-          oninput="changeSource()"
-          placeholder="f015"
-          maxlength="4"
-        />
+      <div class="sourceRow">
+        <div class="sourceContainer">
+          <span>Simge kaynağı</span>
+          <input
+            type="text"
+            class="source"
+            oninput="changeSource()"
+            value="f015"
+            maxlength="4"
+          />
+        </div>
       </div>
+      <div class="detailRow">
+        <div class="col">
+          <div class="sizeContainer">
+            <span>Simge boyutu</span>
+            <input
+              type="range"
+              oninput="changeSize()"
+              min="1"
+              max="200"
+              value="50"
+            />
+            <span class="result">50px</span>
+          </div>
 
-      <div class="colorContainer">
-        <span>İkon Rengi</span>
-        <input type="color" oninput="changeColor()" />
+          <div class="colorContainer">
+            <span>Simge rengi</span>
+            <input type="color" oninput="changeColor()" />
+          </div>
+        </div>
+        <div class="col">
+          <div class="canvasHeightContainer">
+            <span>Çerçeve yüksekliği</span>
+            <input
+              type="range"
+              oninput="changeCanvasHeight()"
+              min="1"
+              max="250"
+              value="50"
+            />
+            <span class="result">50px</span>
+          </div>
+
+          <div class="canvasWidthContainer">
+            <span>Çerçeve Genişliği</span>
+            <input
+              type="range"
+              oninput="changeCanvasWidth()"
+              min="1"
+              max="250"
+              value="50"
+            />
+            <span class="result">50px</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="iconPosXContainer">
+            <span>Simge pozisyonu (x)</span>
+            <input
+              type="range"
+              oninput="changeIconPosX()"
+              min="-50"
+              max="50"
+              value="0"
+            />
+            <span class="result">0px</span>
+          </div>
+
+          <div class="iconPosYContainer">
+            <span>Simge pozisyonu (y)</span>
+            <input
+              type="range"
+              oninput="changeIconPosY()"
+              min="0"
+              max="250"
+              value="50"
+            />
+            <span class="result">50px</span>
+          </div>
+        </div>
       </div>
-
-      <div class="sizeContainer">
-        <span>İkon Boyutu</span>
-        <input
-          type="range"
-          oninput="changeSize()"
-          min="1"
-          max="200"
-          value="50"
-        />
-        <span class="result">50px</span>
-      </div>
-
-      <div class="canvasHeightContainer">
-        <span>Çerçeve yüksekliği</span>
-        <input
-          type="range"
-          oninput="changeCanvasHeight()"
-          min="1"
-          max="200"
-          value="50"
-        />
-        <span class="result">50px</span>
-      </div>
-
-      <div class="canvasWidthContainer">
-        <span>Çerçeve Genişliği</span>
-        <input
-          type="range"
-          oninput="changeCanvasWidth()"
-          min="1"
-          max="200"
-          value="50"
-        />
-        <span class="result">50px</span>
-      </div>
-
-      <div class="buttonContainer">
-        <button onclick="downloadClick()">Png Olarak İndir</button>
+      <div class="buttonRow">
+        <div class="buttonContainer">
+          <button onclick="downloadClick()">Png Olarak İndir</button>
+        </div>
       </div>
     </div>
   </body>
