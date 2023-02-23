@@ -10,21 +10,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #f0f1f3;
 }
 
 #main {
-  padding: 50px;
+  min-height: 700px;
+  /* height: 100%;  */
+  padding: 30px 20px;
   box-sizing: border-box;
   flex-direction: column;
+  background-color: #fefefe;
+  border: 2px outset silver;
 }
 
-#main div {
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+#main div,
 #main span {
   box-sizing: border-box;
   display: flex;
@@ -35,8 +34,17 @@ body {
 #main > div {
   margin: 0 auto;
   flex-direction: column;
-  height: 100px;
-  width: 200px;
+  height: 70px;
+  /* border: 1px solid black; */
+}
+
+#main > div > span {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande" !important;
+  height: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: FontAwesome;
+  /* border: 1px solid black; */
 }
 
 #main > .cavasContainer {
@@ -45,6 +53,7 @@ body {
   box-sizing: border-box;
   font-family: FontAwesome;
   border: 1px solid black;
+  display: block;
 }
 
 #main > .cavasContainer > span {
@@ -53,11 +62,21 @@ body {
   width: 100%;
   box-sizing: border-box;
   font-family: FontAwesome;
-  border: 1px solid black;
+  box-shadow: 0 5px 5px -5px silver;
 }
 
-#main > .cavasContainer > #canvas {
-  border: 1px solid black;
+#main > .cavasContainer > div {
+  /* border: 1px solid black; */
   height: 200px;
   width: 200px;
+}
+
+#main > .cavasContainer > div > #canvas {
+  border: 1px dashed blue;
+}
+
+#main > .sourceContainer > input {
+  font-size: 16px;
+  text-align: center;
+  width: 100px;
 }
