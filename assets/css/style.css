@@ -85,14 +85,33 @@ button {
   width: 500px;
 }
 #main > .sourceRow > .sourceContainer {
+  width: 550px;
   height: 90%;
   justify-content: space-around;
   /* border: 1px solid black; */
 }
 
-#main > .sourceRow > .sourceContainer > input {
+#main > .sourceRow > .sourceContainer > div {
+  position: relative;
+  width: 550px;
+  flex-direction: row;
+  overflow: hidden;
+}
+#main > .sourceRow > .sourceContainer > div > input {
+  display: inline-block;
   text-align: center;
-  width: 170px;
+  width: 550px;
+}
+#main > .sourceRow > .sourceContainer > div > button {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: absolute;
+  left: 95.5%;
+  height: 80%;
+  width: 4%;
+  padding: 0 1px;
+  outline: none;
 }
 
 /* Details */

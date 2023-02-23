@@ -11,12 +11,10 @@ let iconPosY = canvasHeight;
 $(function () {
   // I need this because when I want to print icon to canvas it do not print in first time.
   initilizeCanvas();
-  // console.log(findUniCode("fa-solid fa-house"));
-  console.log(findUniCode("fa-solid fa-magnifying-glass"));
 });
 
 function initilizeCanvas() {
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 200; i++) {
     setTimeout(() => {
       drawCanvas();
     }, i);
@@ -25,14 +23,11 @@ function initilizeCanvas() {
 
 function findUniCode(name) {
   let testI = document.createElement("i");
-
   testI.className = name;
   document.body.appendChild(testI);
-
   let char = window.getComputedStyle(testI, ":before").content;
   testI.remove();
-
-  return "\\u" + char.charCodeAt(1).toString(16);
+  return char.charCodeAt(1).toString(16);
 }
 
 function drawCanvas() {
@@ -43,19 +38,28 @@ function drawCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // ctx.textAlign = "center";
+  // ctx.textBaseline = "middle";
   ctx.font = size + "px FontAwesome";
   ctx.fillStyle = color;
-  // ctx.textBaseline = "middle";
 
   ctx.fillText(src, iconPosX, iconPosY);
 }
 
 function changeSource() {
-  src = $("#main > div.sourceRow > div > input").val();
+  src = $("#main > div.sourceRow > div > div > input").val().trim();
 
   if (src.length == 4) {
+    // unicode source
     src = String.fromCharCode(parseInt(src, 16));
-    drawCanvas(src);
+    drawCanvas();
+  } else if (src.length > 4) {
+    //i tag source
+    src = src.split(`"`);
+    if (src.length > 1) {
+      src = findUniCode(src[1]);
+      src = String.fromCharCode(parseInt(src, 16));
+      drawCanvas();
+    }
   }
 }
 
@@ -68,7 +72,7 @@ function changeSize() {
   // update output
   element.next().html(`${size}px`);
 
-  // change frame sizes
+  // change frame sizes relatively
   changeCanvasWidth(size);
   changeCanvasHeight(size);
   changeIconPosY(size);
@@ -144,6 +148,10 @@ function downloadClick() {
   let canvas = document.getElementById("canvas");
   const a = document.createElement("a");
   a.href = canvas.toDataURL();
-  a.download = "icon.png";
+  a.download = "myAwesomeIcon.png";
   a.click();
+}
+
+function clearSource() {
+  $("#main > div.sourceRow > div > div > input").val("");
 }
