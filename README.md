@@ -1,4 +1,4 @@
-<h1 align="center">Save Icons</h1> <br>
+<h1 align="center">Save Icon</h1> <br>
 
 <div align="center">
     <img width=150 src="/assets/images/favicon.ico">
