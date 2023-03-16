@@ -1,5 +1,53 @@
-# saveIcon
-### Proje Açıklaması
-Web tabanlı önyüz projesi olan bu sayfada, font Awasome iconlarının i tag kodunu veya unicode'unu kullanarak, simgeler üzerinde değişiklik yaptıktan sonra indirebilirsiniz.
-### Proje fikri Muhammet Karakök'e aittir.
-![demo2](https://user-images.githubusercontent.com/101711642/221005590-7fb4ffc9-bb27-4f2b-8e7a-53aa53bb6bf4.png)
+<h1 align="center">Save Icons</h1> <br>
+
+<div align="center">
+    <img width=150 src="/assets/images/favicon.ico">
+</div>
+
+<br/>
+
+## Table of Contents
+
+- [Demo](#demo)
+- [Introduction](#introduction)
+- [Technologies](#technologies)
+- [Features](#features)
+- [Contributors](#contributors)
+
+<br/>
+
+## Demo
+
+<br/>
+
+<div align="center">
+    <img width=850 src="/assets/demo/demo2.png">
+</div>
+
+<br/>
+
+## Introduction
+On this page, which is a web-based frontend project, you can download font Awesome icons using i tag code or unicode after making changes on the icons.
+
+<br/>
+
+## Technologies
+
+* Html
+* Css
+* Js
+
+<br/>
+
+## Features
+* Color of icons can be changed
+* Size of icons can be changed
+* Alignment of icons can be changed
+
+<br/>
+
+## Contributors
+
+<a href="https://github.com/ahmettoguz" target="_blank"><img width=50 height=50 src="https://avatars.githubusercontent.com/u/101711642?v=4"></a>
+
+**The project idea belongs to Muhammet Karekök.**
